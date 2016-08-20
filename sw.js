@@ -1,0 +1,89 @@
+// Use a cacheName for cache versioning
+var cacheName = 'v1:static';
+
+// During the installation phase, you'll usually want to cache static assets.
+self.addEventListener('install', function(e) {
+    // Once the service worker is installed, go ahead and fetch the resources to make this work offline.
+    e.waitUntil(
+        caches.open(cacheName).then(function(cache) {
+            return cache.addAll([
+                './app/app.css',
+                './app/index.html',
+                './bundle.js'
+            ]).then(function() {
+                self.skipWaiting();
+            });
+        })
+    );
+});
+
+// // when the browser fetches a URL…
+// self.addEventListener('fetch', function(event) {
+//     // … either respond with the cached object or go ahead and fetch the actual URL
+//     event.respondWith(
+//         caches.match(event.request).then(function(response) {
+//             if (response) {
+//                 // retrieve from cache
+//                 return response;
+//             }
+//             // fetch as normal
+//             return fetch(event.request);
+//         })
+//     );
+// });
+
+// this.addEventListener('fetch', function(event) {
+//   var response;
+//   event.respondWith(
+//     caches.match(event.request).catch(function() {
+//     return fetch(event.request);
+//   }).then(function(r) {
+//     response = r;
+//     caches.open(cacheName).then(function(cache) {
+//         cache.put(event.request, response);
+//     });
+//     return response.clone();
+//   }).catch(function() {
+//     return caches.match('/');
+//   }));
+// });
+
+self.addEventListener('fetch', function(event) {
+  event.respondWith(
+    caches.match(event.request)
+      .then(function(response) {
+        // Cache hit - return response
+        if (response) {
+          return response;
+        }
+
+        // IMPORTANT: Clone the request. A request is a stream and
+        // can only be consumed once. Since we are consuming this
+        // once by cache and once by the browser for fetch, we need
+        // to clone the request.
+        var fetchRequest = event.request.clone();
+
+        return fetch(fetchRequest).then(
+          function(response) {
+            // Check if we received a valid response
+            if(!response || response.status !== 200 || response.type !== 'basic') {
+              return response;
+            }
+
+            // IMPORTANT: Clone the response. A response is a stream
+            // and because we want the browser to consume the response
+            // as well as the cache consuming the response, we need
+            // to clone it so we have 2 stream.
+            var responseToCache = response.clone();
+
+            caches.open(cacheName)
+              .then(function(cache) {
+                cache.put(event.request, responseToCache);
+              });
+
+            return response;
+          }
+        );
+      })
+    );
+});

@@ -4,13 +4,24 @@
   <meta charset="UTF-8">
   <title>Pizza Chain Bot Manager</title>
   <link rel="stylesheet" href="/app/app.css">
+  <link rel="manifest" href="./../manifest.json">
 </head>
 <body>
   <div id="main">
   </div>
 
+  <script type='text/javascript'>
+    // Register the service worker if available.
+  if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./../sw.js').then(function(reg) {
+          console.log('Successfully registered service worker', reg);
+      }).catch(function(err) {
+          console.warn('Error whilst registering service worker', err);
+      });
+  }
+  </script>
+
   <script src="/bundle.js"></script>
 
 </body>
 </html>
-  
