@@ -8,28 +8,93 @@
 */
 
 body {
-  font-family:'Segoe UI', Helvetica, sans-serif;
-  background-color:#666c60;
+  font-family: 'Segoe UI', Helvetica, sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0 15px;
+  font-weight: 200;
 }
 button{
-  padding: 20px 30%;
+  padding: 20px 30px;
   background-color: #fff;
-  font-size: 20px;
+  font-size: 22px;
+  border: 0;
+  margin: 15px auto;
+  width: 100%;
+  color: #f69c55;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.08);
+  cursor: pointer;
+  font-weight: 200;
+  text-rendering: geometricPrecision;
 }
 
 .details{
   text-align: center;
-  background: #fff;
+  color: #999;
   margin: 0;
   padding: 20px;
+  background: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.08);
+  font-weight: 200;
 }
 ul {
   padding-left:0px;
   list-style: none;
 }
 ul li{
-  border: 1px solid;
   padding: 5px;
-  border-color: #9E9E9E;
   text-align: left;
+  display: flex;
+}
+
+.left{
+  width: 40%;
+  display: inline-block;
+  float: left;
+  text-align: right;
+  margin-right: 20px;
+}
+.right{
+  width: 60%;
+  display: inline-block;
+  float: right;
+  font-size: 16px;
+  text-align: left;
+  margin-left: 20px;
+}
+.batch{
+  display: inline-block;
+  text-align: center;
+  background-color: #FFC107;
+  padding: 10px;
+  border-radius: 100px;
+  margin: 5px;
+  color: #fff;
+  width: 23px;
+  font-size: 20px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.08);
+}
+.gold{
+  background-color: gold;
+}
+.silver{
+  background-color: silver;
+}
+.bronze{
+  background-color: #CD7F32;
+}
+.name{
+  font-size: 30px;
+  margin-bottom: 10px;
+  color: #000;
+}
+img{
+  border-radius: 100px;
+}
+.fTile{
+  font-weight: 300;
+}
+.lTile{
+  font-weight: 400;
+    color: black;
 }

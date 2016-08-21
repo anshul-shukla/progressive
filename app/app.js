@@ -24,7 +24,12 @@ class App extends React.Component{
         age :0,
         location : "",
         website : "",
-        link : ""
+        link : "",
+        badge_counts : {
+          bronze: 0,
+          silver: 0,
+          gold: 0
+        }
       };
       this.getUser();
   }
@@ -37,7 +42,12 @@ class App extends React.Component{
       age :response.items[0].age,
       location : response.items[0].location,
       website :response.items[0].website_url,
-      link :response.items[0].link
+      link :response.items[0].link,
+      badge_counts : {
+        bronze: response.items[0].badge_counts.bronze,
+        silver: response.items[0].badge_counts.silver,
+        gold: response.items[0].badge_counts.gold
+      }
     })
   }
 
@@ -72,27 +82,44 @@ class App extends React.Component{
   render() {
     return (
       <div>
-          <div><button onClick= {this.login} >Login</button></div>
+          <div>
+            <button onClick= {this.login} >
+              <span className="fTile">stack</span>
+              <span className="lTile">overflow</span>
+            </button>
+          </div>
           <div className="details">
             <ul>
               <li>
-                  <div><img src={this.state.imgUrl} /></div>
-                  <div>{this.state.name}</div>
+                  <div className="left"><img src={this.state.imgUrl} /></div>
+                  <div className="right">
+                    <div className="name">{this.state.name}</div>
+                    <div>
+                      <div className="batch gold">{this.state.badge_counts.gold}</div>
+                      <div className="batch silver">{this.state.badge_counts.silver}</div>
+                      <div className="batch bronze">{this.state.badge_counts.bronze}</div>
+                    </div>
+                  </div>
               </li>
               <li>
-              reputation : {this.state.reputation}
+              <div className="left">Reputation : </div>
+              <div className="right">{this.state.reputation}</div>
               </li>
               <li>
-                age : {this.state.age}
+              <div className="left">Age : </div>
+              <div className="right">{this.state.age}</div>
               </li>
               <li>
-              location : {this.state.location}
+              <div className="left">Location : </div>
+              <div className="right">{this.state.location}</div>
               </li>
               <li>
-                website : {this.state.website}
+              <div className="left">Website : </div>
+              <div className="right">{this.state.website}</div>
               </li>
               <li>
-                link : <a href={this.state.website} >{this.state.website}</a>
+              <div className="left">Link : </div>
+              <div className="right"><a href={this.state.website} >{this.state.website}</a></div>
               </li>
             </ul>
           </div>
