@@ -17,37 +17,6 @@ self.addEventListener('install', function(e) {
     );
 });
 
-// // when the browser fetches a URL…
-// self.addEventListener('fetch', function(event) {
-//     // … either respond with the cached object or go ahead and fetch the actual URL
-//     event.respondWith(
-//         caches.match(event.request).then(function(response) {
-//             if (response) {
-//                 // retrieve from cache
-//                 return response;
-//             }
-//             // fetch as normal
-//             return fetch(event.request);
-//         })
-//     );
-// });
-
-// this.addEventListener('fetch', function(event) {
-//   var response;
-//   event.respondWith(
-//     caches.match(event.request).catch(function() {
-//     return fetch(event.request);
-//   }).then(function(r) {
-//     response = r;
-//     caches.open(cacheName).then(function(cache) {
-//         cache.put(event.request, response);
-//     });
-//     return response.clone();
-//   }).catch(function() {
-//     return caches.match('/');
-//   }));
-// });
-
 self.addEventListener('fetch', function(event) {
   event.respondWith(
     caches.match(event.request)
@@ -66,7 +35,7 @@ self.addEventListener('fetch', function(event) {
         return fetch(fetchRequest).then(
           function(response) {
             // Check if we received a valid response
-            if(!response || response.status !== 200 || response.type !== 'basic') {
+            if(!response || response.status !== 200) { // || response.type !== 'basic'
               return response;
             }
 
