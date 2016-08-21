@@ -1,6 +1,6 @@
 {
   "name": "Progressive",
   "tagline": "progressive web app sample",
-  "body": "### Progressive Web App - MyStack\r\n![](https://postimg.org/image/8axei2ugp/)\r\n\r\n\r\n### Try it out !!!\r\n\r\n`git clone https://github.com/anshul-shukla/progressive.git`\r\n`npm install`\r\n`npm install -g webpack webpack-dev-server`\r\n`npm run start-webpack-server`\r\n\r\nopen - `locahost`\r\n\r\n\r\n### Idea \r\n\r\nBasically here we are trying to show stack overflow user account offline. We are using stack overflow open API's for that.\r\n\r\n\r\n### Authors and Contributors\r\n @anshul-shukla",
+  "body": "### Progressive Web App - MyStack\r\n![](https://postimg.org/image/8axei2ugp/)\r\n\r\n\r\n### Try it out !!!\r\n\r\n`git clone https://github.com/anshul-shukla/progressive.git`\r\n\r\n`npm install`\r\n\r\n`npm install -g webpack webpack-dev-server`\r\n\r\n`npm run start-webpack-server`\r\n\r\nopen - `locahost`\r\n\r\n\r\n### Idea \r\n\r\nBasically here we are trying to show stack overflow user account offline. We are using stack overflow open API's for that.\r\n\r\n\r\n### Authors and Contributors\r\n @anshul-shukla",
   "note": "Don't delete this file! It's used internally to help with page regeneration."
 }
