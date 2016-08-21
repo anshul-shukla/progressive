@@ -1,5 +1,5 @@
 // Use a cacheName for cache versioning
-var cacheName = 'v1:static';
+var cacheName = 'v2:static';
 
 // During the installation phase, you'll usually want to cache static assets.
 self.addEventListener('install', function(e) {
@@ -16,6 +16,25 @@ self.addEventListener('install', function(e) {
         })
     );
 });
+
+
+self.addEventListener('activate', function(event) {
+
+  var cacheWhitelist = [cacheName];
+
+  event.waitUntil(
+    caches.keys().then(function(cacheNames) {
+      return Promise.all(
+        cacheNames.map(function(cacheName) {
+          if (cacheWhitelist.indexOf(cacheName) === -1) {
+            return caches.delete(cacheName);
+          }
+        })
+      );
+    })
+  );
+});
+
 
 self.addEventListener('fetch', function(event) {
   event.respondWith(

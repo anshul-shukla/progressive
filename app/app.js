@@ -76,10 +76,8 @@ class App extends React.Component{
           <div className="details">
             <ul>
               <li>
-                <img src={this.state.imgUrl} />
-              </li>
-              <li>
-              name : {this.state.name}
+                  <div><img src={this.state.imgUrl} /></div>
+                  <div>{this.state.name}</div>
               </li>
               <li>
               reputation : {this.state.reputation}
