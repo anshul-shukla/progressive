@@ -1,16 +1,14 @@
 {
-  "name": "pizza-bot-manager",
+  "name": "MyStack",
   "version": "0.1.0",
-  "description": "Sample app for the React Microsoft Virtual Academy course.",
-  "main": "./PizzaBot/server.js",
+  "description": "MyStack",
   "private": true,
   "scripts": {
-    "start-webpack-server": "webpack-dev-server --hot --inline --colors --progress",
-    "start": "node ./PizzaBot/server.js"
+    "start-webpack-server": "webpack-dev-server --hot --inline --colors --progress"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sayar/PizzaBotManager.git"
+    "url": "git+https://github.com/anshul-shukla/progressive.git"
   },
   "keywords": [
     "react",
@@ -18,12 +16,12 @@
     "redux",
     "sample-app"
   ],
-  "author": "Rami Sayar",
+  "author": "anshul-shukla",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sayar/PizzaBotManager/issues"
+    "url": "https://github.com/anshul-shukla/progressive.git/issues"
   },
-  "homepage": "https://github.com/sayar/PizzaBotManager#readme",
+  "homepage": "https://github.com/anshul-shukla/progressive.git#readme",
   "dependencies": {
     "botbuilder": "^0.9.2",
     "classnames": "^2.2.5",
