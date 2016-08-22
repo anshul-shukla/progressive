@@ -29,7 +29,6 @@ button{
 }
 
 .details{
-  text-align: center;
   color: #999;
   margin: 0;
   padding: 20px;
@@ -75,13 +74,13 @@ ul li{
   box-shadow: 0 2px 4px 0 rgba(0,0,0,.08);
 }
 .gold{
-  background-color: gold;
+  background-color: gold !important;
 }
 .silver{
-  background-color: silver;
+  background-color: silver !important;
 }
 .bronze{
-  background-color: #CD7F32;
+  background-color: #CD7F32 !important;
 }
 .name{
   font-size: 30px;
@@ -97,4 +96,19 @@ img{
 .lTile{
   font-weight: 400;
     color: black;
+}
+.badges{
+  overflow: hidden;
+  margin-top: 10px;
+}
+.badge {
+    background-color: #FF9800;
+    color: #fff;
+    padding: 4px 6px;
+    margin: 4px;
+    font-size: 12px;
+    float: left;
+}
+.chart{
+  margin-top: 10px;
 }
